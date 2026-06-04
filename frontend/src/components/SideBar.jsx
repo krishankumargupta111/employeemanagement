@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import { href, useLocation } from 'react-router-dom'
+import { href, useLocation, useNavigate } from 'react-router-dom'
 import { dummyProfileData } from '../assets/assets'
 import { CalendarIcon, ChevronRightIcon, DollarSignIcon, FileTextIcon, LayoutDashboardIcon, LayoutGridIcon, Loader2Icon, LogOutIcon, MenuIcon, SettingsIcon, UserIcon, XIcon } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 import api from '../api/axios'
 function SideBar() {
+  const navigate=useNavigate()
   const { pathname } = useLocation()
   const [userName, setUserName] = useState('')
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -33,7 +34,7 @@ if(res.data.firstName) setUserName(`${res.data.firstName} ${res.data.lastName ||
   ]
   const handleLogOut = () => {
     logout()
-    window.location.href = "/login"
+     navigate("/login");
   }
   const sidebarContent = (
     <>
