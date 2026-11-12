@@ -60,15 +60,14 @@ if(!attendance?.checkOut){
 })
 
 
-//send email to admin if admin doesn't take action on leave
-//application within 24 hours
+
 
 const leaveApplicationRemainder = inngest.createFunction(
 {id:'leave-application-remainder',triggers:[{event:'leave/pending'},]},
 
 async({event,step})=>{
 const{leaveApplicationId}=event.data
-// wait  for 24hr
+
 await step.sleepUntil("wait-for-the-24-hours",
   new Date(new Date().getTime()+24 *60 *60 *1000))
   const LeaveApplication=await LeaveApplicationModel

@@ -2,7 +2,7 @@ import 'dotenv/config'
 import connectDb from './config/db.js'
 import UserModel from './models/User.js'
 import bcrypt from 'bcrypt'
-const TemporaryPassword='admin123'
+const TemporaryPassword=process.env.ADMIN_PASSWORD
 async function registerAdmin(){
     try{
 const ADMIN_EMAIL=process.env.ADMIN_EMAIL

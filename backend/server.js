@@ -13,7 +13,7 @@ import leaveRouter from "./routes/leave.route.js"
 import paySlipRouter from "./routes/payslip.route.js"
 import dashboardRouter from "./routes/dashboard.route.js"
 const app=express()
-const  PORT=process.env.PORT ||4000
+const  PORT=process.env.PORT ||400
 
 
 app.use(cors())
